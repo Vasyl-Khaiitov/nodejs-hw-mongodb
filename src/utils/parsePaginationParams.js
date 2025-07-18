@@ -8,3 +8,15 @@ const parseNumber = (number, defaultValue) => {
   }
   return parsedNumber;
 };
+
+export const parsePaginationParams = (query) => {
+  const { page, perPage } = query;
+
+  const parsePage = parseNumber(page, 1);
+  const parsePerPage = parseNumber(perPage, 10);
+
+  return {
+    page: parsePage,
+    perPage: parsePerPage,
+  };
+};
