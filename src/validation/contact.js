@@ -7,20 +7,12 @@ export const createContactSchema = Joi.object({
     'string.max': 'Username should have at most {#limit} characters',
     'any.required': 'Username is required',
   }),
-  phoneNumber: Joi.number()
-    .integer()
-    .positive()
-    .min(6)
-    .max(16)
-    .required()
-    .messages({
-      'number.base': '"phoneNumber" must be a number',
-      'number.integer': '"phoneNumber" must be an integer',
-      'number.positive': '"phoneNumber" must be a positive number',
-      'number.min': '"phoneNumber" must be at least 6 digits',
-      'number.max': '"phoneNumber" must be no more than 16 digits',
-      'any.required': '"phoneNumber" is a required field',
-    }),
+  phoneNumber: Joi.string().min(6).max(16).required().messages({
+    'number.base': '"phoneNumber" must be a string',
+    'number.min': '"phoneNumber" must be at least 6 digits',
+    'number.max': '"phoneNumber" must be no more than 16 digits',
+    'any.required': '"phoneNumber" is a required field',
+  }),
 
   email: Joi.string()
     .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
@@ -54,10 +46,8 @@ export const updateStudentSchema = Joi.object({
     'string.min': 'Username should have at least {#limit} characters',
     'string.max': 'Username should have at most {#limit} characters',
   }),
-  phoneNumber: Joi.number().integer().positive().min(6).max(16).message({
-    'number.base': '"phoneNumber" must be a number',
-    'number.integer': '"phoneNumber" must be an integer',
-    'number.positive': '"phoneNumber" must be a positive number',
+  phoneNumber: Joi.string().min(6).max(16).message({
+    'number.base': '"phoneNumber" must be a string',
     'number.min': '"phoneNumber" must be at least 6 digits',
     'number.max': '"phoneNumber" must be no more than 16 digits',
   }),
