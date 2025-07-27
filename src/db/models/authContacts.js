@@ -1,6 +1,6 @@
 import { model, Schema } from 'mongoose';
 
-const contactSchema = new Schema(
+const userSchema = new Schema(
   {
     name: {
       type: String,
@@ -22,10 +22,10 @@ const contactSchema = new Schema(
   },
 );
 
-contactSchema.methods.toJSON = function () {
+userSchema.methods.toJSON = function () {
   const obj = this.toObject();
   delete obj.password;
   return obj;
 };
 
-export const ContactCollection = model('contact', contactSchema);
+export const UsersCollection = model('user', userSchema);
