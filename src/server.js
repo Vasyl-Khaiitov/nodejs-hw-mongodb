@@ -8,6 +8,7 @@ import { getEnvVar } from './utils/getEnvVar.js';
 import router from './routers/index.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 import { errorHandler } from './middlewares/errorHandler.js';
+import { UPLOAD_DIR } from './constants/index.js';
 
 dotenv.config();
 
@@ -30,6 +31,7 @@ export const setupServer = () => {
   app.use(router);
   app.use(notFoundHandler);
   app.use(errorHandler);
+  app.use('/uploads', express.static(UPLOAD_DIR));
 
   app.listen(PORT, () => {
     console.log(`Server is running on ${PORT}`);

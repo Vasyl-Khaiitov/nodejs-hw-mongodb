@@ -40,6 +40,7 @@ export const authenticate = async (req, res, next) => {
     next(createHttpError(401));
     return;
   }
+  user.id = user._id.toString();
   req.user = user;
   next();
 };

@@ -167,8 +167,8 @@ export const resetPassword = async (payload) => {
 
   const encryptedPassword = await bcrypt.hash(payload.password, 10);
 
-  await UsersCollection.updateOne({
-    _id: user._id,
-    password: encryptedPassword,
-  });
+  await UsersCollection.updateOne(
+    { _id: user._id },
+    { password: encryptedPassword },
+  );
 };
