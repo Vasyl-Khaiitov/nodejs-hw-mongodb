@@ -32,7 +32,7 @@ parameters:
     name: isFavourite
     schema:
       type: boolean
-    example: 'false'
+    example: false
   - in: query
     name: contactType
     schema:
