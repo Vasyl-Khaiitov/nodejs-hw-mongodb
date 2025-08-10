@@ -30,4 +30,9 @@ export const CLOUDINARY = {
   API_SECRET: 'API_SECRET',
 };
 
+export const PATH_JSON_GOOGL_AUTH = path.resolve(
+  __dirname,
+  '../googleAuth/google-oauth.json',
+);
+
 export const SWAGGER_PATH = path.join(process.cwd(), 'docs', 'swagger.json');
