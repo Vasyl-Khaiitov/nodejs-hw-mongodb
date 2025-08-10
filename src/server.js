@@ -28,7 +28,7 @@ export const setupServer = () => {
       },
     }),
   );
-  setupSwagger();
+  setupSwagger(app);
   app.use(router);
   app.use(notFoundHandler);
   app.use(errorHandler);
