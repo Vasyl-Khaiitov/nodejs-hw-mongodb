@@ -13,7 +13,7 @@ requestBody:
         required:
           - name
           - phoneNumber
-          - contentType
+          - contactType
           - isFavourite
         properties:
           name:
@@ -23,7 +23,7 @@ requestBody:
           phoneNumber:
             description: 'Contact number'
             type: string
-            example: +380994581732
+            example: '+380994581732'
           email:
             description: 'Contact email'
             type: string
