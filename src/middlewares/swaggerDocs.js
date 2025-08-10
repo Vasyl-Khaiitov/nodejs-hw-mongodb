@@ -8,7 +8,8 @@ export const setupSwagger = (app) => {
     const swaggerDoc = JSON.parse(fs.readFileSync(SWAGGER_PATH).toString());
     app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDoc));
   } catch (err) {
-    return (req, res, next) =>
-      next(createHttpError(500, "Cant't load Swagger docs"));
+    app.use('/api-docs', (req, res, next) =>
+      next(createHttpError(500, "Cant't load Swagger docs")),
+    );
   }
 };
